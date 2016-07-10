@@ -113,17 +113,15 @@ public class BookTitle {
   public void inspection() {
 	String[] windowHandles;
 
-	for (int i = 0; i < booksList.size(); i++) {
+	for (int i = 18; i < booksList.size(); i++) {
 	  softAssert.setBookNumber(i);
 	  String titleNameOfBook = readingOfTitle(i, "titleName", ".//div[@class='zg_title']");
 	  String titleNameOfAuthor = readingOfTitle(i, "titleName", ".//div[@class='zg_byline']");
 	  String titlePriceOfBook = readingOfTitle(i, "titleName", ".//div[@class='zg_price']");
 
 	  new Actions(driver).keyDown(Keys.CONTROL).click(booksList.get(i).findElement(By.tagName("a")))
-			  .keyUp(booksList.get(i).findElement(By.tagName("a")), Keys.CONTROL).build().perform();
+			  .keyUp(Keys.CONTROL).build().perform();
 	  windowHandles = driver.getWindowHandles().toArray(new String[0]);
-	  driver.switchTo().window(windowHandles[2]);
-	  driver.close();
 	  driver.switchTo().window(windowHandles[1]);
 
 	  String innerNameOfBook = getInnerNameOfBook(i);
