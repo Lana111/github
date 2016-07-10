@@ -113,7 +113,7 @@ public class BookTitle {
   public void inspection() {
 	String[] windowHandles;
 
-	for (int i = 18; i < booksList.size(); i++) {
+	for (int i = 0; i < booksList.size(); i++) {
 	  softAssert.setBookNumber(i);
 	  String titleNameOfBook = readingOfTitle(i, "titleName", ".//div[@class='zg_title']");
 	  String titleNameOfAuthor = readingOfTitle(i, "titleName", ".//div[@class='zg_byline']");
